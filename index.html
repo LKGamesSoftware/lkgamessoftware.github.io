@@ -58,9 +58,11 @@ h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.15;font-weight:700;letter-
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 24px 26px;transition:border-color .2s,transform .2s}
 .card:hover{border-color:rgba(0,249,255,.45);transform:translateY(-2px)}
-.card h3{font-size:1.05rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
-.card h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan);flex:none}
-.card:nth-child(even) h3::before{background:var(--magenta);box-shadow:0 0 10px var(--magenta)}
+.card h3{font-size:1.05rem;margin-bottom:8px}
+.ico{display:grid;place-items:center;width:52px;height:52px;margin-bottom:18px;border-radius:14px;color:var(--cyan);border:1px solid rgba(0,249,255,.38);background:rgba(0,249,255,.07);box-shadow:0 0 18px rgba(0,249,255,.16),inset 0 0 14px rgba(0,249,255,.06);transition:box-shadow .2s}
+.ico svg{display:block;filter:drop-shadow(0 0 5px currentColor)}
+.card:nth-child(even) .ico{color:var(--magenta);border-color:rgba(255,14,153,.4);background:rgba(255,14,153,.07);box-shadow:0 0 18px rgba(255,14,153,.16),inset 0 0 14px rgba(255,14,153,.06)}
+.card:hover .ico{box-shadow:0 0 26px currentColor,inset 0 0 14px rgba(255,255,255,.05)}
 .card p{color:var(--muted);font-size:.95rem}
 .band{border-block:1px solid var(--line);background:linear-gradient(180deg,rgba(7,19,27,.7),rgba(3,9,14,.4))}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
@@ -79,6 +81,56 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);f
   nav .hide-m{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---- rifinitura colore ---- */
+::selection{background:rgba(255,14,153,.45);color:#fff}
+html{color-scheme:dark}
+body{position:relative;background-image:radial-gradient(60rem 40rem at 85% -10%,rgba(255,14,153,.16),transparent 60%),radial-gradient(60rem 40rem at 8% 0%,rgba(0,249,255,.16),transparent 60%),radial-gradient(50rem 30rem at 50% 105%,rgba(139,92,246,.10),transparent 70%)}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.9;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100' viewBox='0 0 56 100'%3E%3Cpath d='M28 66L0 50L0 16L28 0L56 16L56 50L28 66L28 100' fill='none' stroke='%2300f9ff' stroke-opacity='.075'/%3E%3C/svg%3E");
+  -webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 60%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.35) 60%,transparent 100%)}
+header{border-bottom:0;background:rgba(3,9,14,.78)}
+header::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--magenta),transparent);opacity:.6}
+.brand{text-shadow:0 0 18px rgba(0,249,255,.25)}
+nav a:hover{color:var(--cyan)}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;background:rgba(0,249,255,.07);box-shadow:0 0 22px rgba(0,249,255,.14)}
+.eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--magenta);box-shadow:0 0 10px var(--magenta)}
+h1 .p1{color:var(--cyan);text-shadow:0 0 28px rgba(0,249,255,.45)}
+h1 .p2{color:var(--magenta);text-shadow:0 0 28px rgba(255,14,153,.45)}
+h1 .v{background:linear-gradient(90deg,var(--cyan),#8b5cf6 50%,var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .04em}
+.lead strong{color:var(--ink)}
+.btn.primary{background:linear-gradient(90deg,var(--cyan),#6d7bff 55%,var(--magenta));color:#03121a;border-color:transparent;font-weight:700;box-shadow:0 0 28px rgba(0,249,255,.25),0 0 40px rgba(255,14,153,.18)}
+.btn.primary:hover{border-color:transparent;box-shadow:0 0 36px rgba(0,249,255,.4),0 0 54px rgba(255,14,153,.32)}
+.btn:not(.primary){border-color:rgba(255,14,153,.5);background:rgba(255,14,153,.07)}
+.btn:not(.primary):hover{border-color:var(--magenta);box-shadow:0 0 28px rgba(255,14,153,.28)}
+.logo::before{content:"";position:absolute;inset:-14% -18%;z-index:-1;border-radius:50%;filter:blur(46px);
+  background:radial-gradient(closest-side at 32% 50%,rgba(0,249,255,.38),transparent 72%),radial-gradient(closest-side at 70% 50%,rgba(255,14,153,.38),transparent 72%)}
+.logo img{border:1px solid transparent;background:linear-gradient(#03090e,#03090e) padding-box,linear-gradient(135deg,var(--cyan),var(--magenta)) border-box;box-shadow:0 0 50px rgba(0,249,255,.22),0 0 80px rgba(255,14,153,.2)}
+.stats{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:0 0 18px}
+.stats li{--a:var(--cyan);text-align:center;padding:18px 12px;border-radius:16px;border:1px solid color-mix(in srgb,var(--a) 35%,transparent);background:linear-gradient(180deg,color-mix(in srgb,var(--a) 10%,transparent),rgba(10,24,32,.55))}
+.stats li:nth-child(even){--a:var(--magenta)}
+.stats strong{display:block;font-size:clamp(1.3rem,2.6vw,1.9rem);line-height:1.15;font-weight:800;color:var(--a);text-shadow:0 0 18px color-mix(in srgb,var(--a) 60%,transparent)}
+.stats span{display:block;margin-top:4px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.band{background:linear-gradient(90deg,rgba(0,249,255,.07),rgba(7,19,27,.55) 45%,rgba(255,14,153,.08));border-block:0;position:relative}
+.band::before,.band::after{content:"";position:absolute;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),var(--magenta),transparent);opacity:.55}
+.band::before{top:0}.band::after{bottom:0}
+.kicker{display:inline-block;font-weight:600;background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{text-shadow:0 0 30px rgba(0,249,255,.12)}
+.card{--a:var(--cyan);position:relative;overflow:hidden;background:linear-gradient(180deg,color-mix(in srgb,var(--a) 9%,transparent),rgba(10,24,32,.78) 62%);border-color:color-mix(in srgb,var(--a) 26%,transparent)}
+.card:nth-child(even){--a:var(--magenta)}
+.card::before{content:"";position:absolute;left:0;right:0;top:0;height:2px;background:linear-gradient(90deg,transparent,var(--a),transparent);opacity:.85}
+.card:hover{border-color:var(--a);box-shadow:0 8px 34px color-mix(in srgb,var(--a) 22%,transparent)}
+.card h3{color:#fff}
+.contact.contact{margin:56px 0;padding:30px 32px 34px;border-radius:20px;border:1px solid rgba(255,14,153,.4);background:linear-gradient(135deg,rgba(255,14,153,.10),rgba(0,249,255,.07));box-shadow:0 0 40px rgba(255,14,153,.12)}
+.contact a.mail{background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+footer{position:relative;border-top:0;background:linear-gradient(180deg,transparent,rgba(0,249,255,.05))}
+footer::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--magenta),var(--cyan),transparent);opacity:.6}
+.foot a:hover{color:var(--cyan)}
+@media(max-width:860px){.stats{grid-template-columns:repeat(2,1fr)}.contact.contact{margin:8px 0 40px;padding:24px 22px 28px}}
+@media(prefers-reduced-motion:no-preference){
+  .logo img{animation:glow 5s ease-in-out infinite alternate}
+  @keyframes glow{from{box-shadow:0 0 40px rgba(0,249,255,.18),0 0 64px rgba(255,14,153,.14)}to{box-shadow:0 0 64px rgba(0,249,255,.34),0 0 96px rgba(255,14,153,.30)}}
+}
 </style>
 </head>
 <body>
@@ -100,7 +152,7 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);f
   <div class="wrap hero">
     <div>
       <span class="eyebrow">Coming soon to Android</span>
-      <h1>Ping <span class="v">v</span> Pong</h1>
+      <h1><span class="p1">Ping</span> <span class="v">v</span> <span class="p2">Pong</span></h1>
       <p class="lead">Classic Pong, rebuilt for real competition. A fast, neon-lit 1v1 online duel for Android with perks, ranked matches and a global leaderboard.</p>
       <div class="cta">
         <a class="btn primary" href="https://lkgamessoftware.github.io/pingvpong-privacy/">Privacy Policy</a>
@@ -109,13 +161,16 @@ footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);f
     </div>
     <div class="logo"><img src="assets/pingvpong-logo.jpg" width="800" height="1000" alt="Ping v Pong logo: a neon V in cyan and magenta with the letters P.P."></div>
   </div>
+  <div class="wrap">
+    <ul class="stats"><li><strong>1v1</strong><span>Online duels</span></li><li><strong>7</strong><span>Perks</span></li><li><strong>12</strong><span>Languages</span></li><li><strong>Bronze → Master</strong><span>Ranked ladder</span></li></ul>
+  </div>
   <div class="band" id="game">
     <div class="wrap">
       <section>
         <p class="kicker">The game</p>
         <h2>Pong, with a competitive edge</h2>
         <p class="sub">Easy to learn in seconds, deep enough to master. Every match is a head-to-head duel against a real opponent.</p>
-        <div class="grid"><article class="card"><h3>1v1 online duels</h3><p>Quick Match finds an opponent for you, or play a friend with a private code. Rollback netcode helps keep matches smooth on mobile connections.</p></article><article class="card"><h3>Ranked and casual</h3><p>Climb from Bronze to Master with an ELO-based rating, and see where you stand on the global leaderboard.</p></article><article class="card"><h3>Perks that change the game</h3><p>Power Shot, Long Paddle, Aimed Angle, Slow Field, Goal Shield, Move Boost and Ball Echo: build a loadout that suits your style.</p></article><article class="card"><h3>Neon look, your colors</h3><p>Unlock paddle colors, field themes and avatars. You see your opponent's choices too, so every match looks like it belongs to both players.</p></article><article class="card"><h3>Built for phones</h3><p>Designed for touch screens and wide displays, with a clean neon interface.</p></article><article class="card"><h3>12 languages</h3><p>English, Italian, French, German, Spanish, Portuguese (Brazil and Portugal), Chinese (Simplified and Traditional), Korean, Japanese and Russian.</p></article></div>
+        <div class="grid"><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7" width="3" height="10" rx="1.5"/><rect x="18.5" y="7" width="3" height="10" rx="1.5"/><circle cx="12" cy="12" r="2.2"/><path d="M8.2 12h1.2M14.6 12h1.2" stroke-dasharray="1 2"/></svg></span><h3>1v1 online duels</h3><p>Quick Match finds an opponent for you, or play a friend with a private code. Rollback netcode helps keep matches smooth on mobile connections.</p></article><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8v5a4 4 0 0 1-8 0z"/><path d="M8 6H5a3 3 0 0 0 3 4M16 6h3a3 3 0 0 1-3 4"/><path d="M12 13v4M8.5 20h7M10 17h4"/></svg></span><h3>Ranked and casual</h3><p>Climb from Bronze to Master with an ELO-based rating, and see where you stand on the global leaderboard.</p></article><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2.5 5 13.5h6l-1 8 8-11h-6z"/></svg></span><h3>Perks that change the game</h3><p>Power Shot, Long Paddle, Aimed Angle, Slow Field, Goal Shield, Move Boost and Ball Echo: build a loadout that suits your style.</p></article><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s-6.5 7-6.5 11.2a6.5 6.5 0 0 0 13 0C18.5 10 12 3 12 3z"/><path d="M8.8 14.5a3.4 3.4 0 0 0 2.4 3"/></svg></span><h3>Neon look, your colors</h3><p>Unlock paddle colors, field themes and avatars. You see your opponent's choices too, so every match looks like it belongs to both players.</p></article><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6.5" y="2.5" width="11" height="19" rx="2.5"/><path d="M9.5 16.5v-4"/><circle cx="14.5" cy="9" r="1.3"/><path d="M11 19h2"/></svg></span><h3>Built for phones</h3><p>Designed for touch screens and wide displays, with a clean neon interface.</p></article><article class="card"><span class="ico" aria-hidden="true"><svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.6 2.6 3.8 5.6 3.8 9s-1.2 6.4-3.8 9c-2.6-2.6-3.8-5.6-3.8-9S9.4 5.6 12 3z"/></svg></span><h3>12 languages</h3><p>English, Italian, French, German, Spanish, Portuguese (Brazil and Portugal), Chinese (Simplified and Traditional), Korean, Japanese and Russian.</p></article></div>
       </section>
     </div>
   </div>
