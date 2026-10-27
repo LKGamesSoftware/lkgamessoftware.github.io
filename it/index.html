@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LK Games Software — Ping v Pong</title>
+<meta name="description" content="LK Games Software crea videogiochi per dispositivi mobili. Ping v Pong è un Pong neon competitivo 1 contro 1 per Android, con abilità, partite classificate e gioco online.">
+<meta name="theme-color" content="#03090e">
+<link rel="canonical" href="https://lkgamessoftware.github.io/it/">
+<link rel="alternate" hreflang="en" href="https://lkgamessoftware.github.io/">
+<link rel="alternate" hreflang="it" href="https://lkgamessoftware.github.io/it/">
+<link rel="alternate" hreflang="x-default" href="https://lkgamessoftware.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="LK Games Software — Ping v Pong">
+<meta property="og:description" content="LK Games Software crea videogiochi per dispositivi mobili. Ping v Pong è un Pong neon competitivo 1 contro 1 per Android, con abilità, partite classificate e gioco online.">
+<meta property="og:url" content="https://lkgamessoftware.github.io/it/">
+<meta property="og:image" content="https://lkgamessoftware.github.io/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png">
+<style>
+:root{
+  --bg:#03090e; --bg2:#07131b; --ink:#e8f3f7; --muted:#8ea4ae; --line:rgba(120,230,240,.16);
+  --cyan:#00f9ff; --magenta:#ff0e99; --card:rgba(10,24,32,.72);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(60rem 40rem at 85% -10%,rgba(255,14,153,.10),transparent 60%),radial-gradient(60rem 40rem at 10% 0%,rgba(0,249,255,.10),transparent 60%)}
+a{color:inherit}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+header{position:sticky;top:0;z-index:5;backdrop-filter:blur(10px);background:rgba(3,9,14,.72);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{font-weight:600;letter-spacing:.22em;font-size:.82rem;text-decoration:none;text-transform:uppercase}
+.brand b{color:var(--cyan);font-weight:600}
+.brand i{color:var(--magenta);font-style:normal}
+nav{display:flex;align-items:center;gap:22px;font-size:.88rem}
+nav a{color:var(--muted);text-decoration:none;transition:color .2s}
+nav a:hover{color:var(--ink)}
+.lang{display:flex;gap:4px;border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang a{padding:2px 11px;border-radius:999px;font-size:.78rem;letter-spacing:.08em}
+.lang a[aria-current="true"]{background:linear-gradient(90deg,var(--cyan),var(--magenta));color:#021015;font-weight:700}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:72px 0 64px}
+.eyebrow{display:inline-block;font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,249,255,.35);padding:6px 14px;border-radius:999px;margin-bottom:22px}
+h1{font-size:clamp(2.6rem,6vw,4.6rem);line-height:1.02;font-weight:800;letter-spacing:-.02em}
+h1 .v{background:linear-gradient(90deg,var(--cyan),var(--magenta));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{margin-top:22px;font-size:1.15rem;color:#b9ccd4;max-width:34em}
+.cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+.btn{display:inline-block;padding:13px 26px;border-radius:12px;text-decoration:none;font-weight:600;font-size:.95rem;border:1px solid var(--line);transition:transform .15s,box-shadow .2s,border-color .2s}
+.btn.primary{background:linear-gradient(90deg,rgba(0,249,255,.16),rgba(255,14,153,.16));border-color:rgba(0,249,255,.5);box-shadow:0 0 24px rgba(0,249,255,.12)}
+.btn:hover{transform:translateY(-2px);border-color:var(--cyan);box-shadow:0 0 28px rgba(0,249,255,.22)}
+.logo{position:relative;justify-self:center;width:min(100%,400px)}
+.logo img{display:block;width:100%;height:auto;border-radius:28px;border:1px solid var(--line);box-shadow:0 0 60px rgba(0,249,255,.15),0 0 90px rgba(255,14,153,.12)}
+section{padding:56px 0}
+.kicker{font-size:.78rem;letter-spacing:.22em;text-transform:uppercase;color:var(--magenta);margin-bottom:10px}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.15;font-weight:700;letter-spacing:-.01em;margin-bottom:14px}
+.sub{color:var(--muted);max-width:40em}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 24px 26px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:rgba(0,249,255,.45);transform:translateY(-2px)}
+.card h3{font-size:1.05rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+.card h3::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--cyan);box-shadow:0 0 10px var(--cyan);flex:none}
+.card:nth-child(even) h3::before{background:var(--magenta);box-shadow:0 0 10px var(--magenta)}
+.card p{color:var(--muted);font-size:.95rem}
+.band{border-block:1px solid var(--line);background:linear-gradient(180deg,rgba(7,19,27,.7),rgba(3,9,14,.4))}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+.contact a.mail{color:var(--cyan);text-decoration:none;font-weight:600;font-size:1.15rem;word-break:break-all}
+.contact a.mail:hover{text-decoration:underline}
+footer{border-top:1px solid var(--line);padding:30px 0 40px;color:var(--muted);font-size:.85rem}
+.foot{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between;align-items:flex-start}
+.foot p+p{margin-top:6px;font-size:.78rem;opacity:.8}
+.foot a{color:var(--muted)}
+.foot a:hover{color:var(--ink)}
+@media(max-width:860px){
+  .hero{grid-template-columns:1fr;gap:34px;padding:40px 0 36px}
+  .logo{order:-1;width:min(70%,300px)}
+  .grid{grid-template-columns:1fr}
+  .two{grid-template-columns:1fr;gap:28px}
+  nav .hide-m{display:none}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top"><b>LK</b> Games <i>Software</i></a>
+    <nav aria-label="Main">
+      <a class="hide-m" href="#game">Il gioco</a>
+      <a class="hide-m" href="#studio">Studio</a>
+      <a class="hide-m" href="#contact">Contatti</a>
+      <div class="lang" role="group" aria-label="Language">
+        <a href="../" hreflang="en" lang="en">EN</a>
+        <a href="./" hreflang="it" lang="it" aria-current="true">IT</a>
+      </div>
+    </nav>
+  </div>
+</header>
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">In arrivo su Android</span>
+      <h1>Ping <span class="v">v</span> Pong</h1>
+      <p class="lead">Il classico Pong, ripensato per la vera competizione. Un duello online 1 contro 1 veloce e al neon per Android, con abilità, partite classificate e una classifica mondiale.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://lkgamessoftware.github.io/pingvpong-privacy/">Informativa privacy</a>
+        <a class="btn" href="#contact">Contattaci</a>
+      </div>
+    </div>
+    <div class="logo"><img src="../assets/pingvpong-logo.jpg" width="800" height="1000" alt="Logo di Ping v Pong: una V al neon ciano e magenta con le lettere P.P."></div>
+  </div>
+  <div class="band" id="game">
+    <div class="wrap">
+      <section>
+        <p class="kicker">Il gioco</p>
+        <h2>Pong, con lo spirito della competizione</h2>
+        <p class="sub">Si impara in pochi secondi, ma c'è molto da padroneggiare. Ogni partita è un duello diretto contro un avversario reale.</p>
+        <div class="grid"><article class="card"><h3>Duelli online 1 contro 1</h3><p>La partita rapida ti trova un avversario, oppure sfidi un amico con un codice privato. Il netcode con rollback aiuta a tenere le partite fluide anche con la rete mobile.</p></article><article class="card"><h3>Classificata e casual</h3><p>Sali da Bronzo a Maestro con un punteggio ELO e guarda dove sei nella classifica mondiale.</p></article><article class="card"><h3>Abilità che cambiano la partita</h3><p>Power Shot, Long Paddle, Aimed Angle, Slow Field, Goal Shield, Move Boost e Ball Echo: scegli la combinazione adatta al tuo stile.</p></article><article class="card"><h3>Look neon, i tuoi colori</h3><p>Sblocca colori dei paddle, temi del campo e avatar. Vedi anche le scelte dell'avversario, così ogni partita appartiene a entrambi i giocatori.</p></article><article class="card"><h3>Pensato per i telefoni</h3><p>Progettato per gli schermi touch e per i display allungati, con un'interfaccia neon pulita.</p></article><article class="card"><h3>12 lingue</h3><p>Inglese, italiano, francese, tedesco, spagnolo, portoghese (Brasile e Portogallo), cinese (semplificato e tradizionale), coreano, giapponese e russo.</p></article></div>
+      </section>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="two">
+      <section id="studio">
+        <p class="kicker">Lo studio</p>
+        <h2>Giochi indipendenti, fatti con cura</h2>
+        <p class="sub">LK Games Software è uno studio indipendente che realizza videogiochi per dispositivi mobili. Ping v Pong è il nostro primo titolo. Lo costruiamo passo dopo passo, puntando su un gioco competitivo equo, veloce e bello da vedere.</p>
+      </section>
+      <section id="contact" class="contact">
+        <p class="kicker">Contatti</p>
+        <h2>Scrivici</h2>
+        <p class="sub">Domande, suggerimenti o richieste della stampa? Scrivi a:</p>
+        <p style="margin-top:12px"><a class="mail" href="mailto:lkgamesoftware@gmail.com">lkgamesoftware@gmail.com</a></p>
+      </section>
+    </div>
+  </div>
+</main>
+<footer>
+  <div class="wrap foot">
+    <div><p>© 2026 LK Games Software. Tutti i diritti riservati.</p><p>Android è un marchio di Google LLC. Ping v Pong non è affiliato né approvato da Google.</p></div>
+    <p><a href="https://lkgamessoftware.github.io/pingvpong-privacy/">Informativa privacy</a></p>
+  </div>
+</footer>
+</body>
+</html>
